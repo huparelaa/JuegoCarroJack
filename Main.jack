@@ -1,0 +1,49 @@
+class Main {
+    function void main() {
+        var Player player;
+        var Obstacle cone;
+        var boolean salir;
+        var char key;
+        var boolean showMenu;
+        var int auxiliar;
+        let player = Player.new(2,6);
+        let cone = Obstacle.new(20, 15);
+        //leer teclado
+        let salir = false;
+        let showMenu = true;
+        
+        while(showMenu){
+            while(key=0){
+                let key = Keyboard.keyPressed();
+            }
+            if(key = 32){let showMenu=false;}
+            while(~(key=0)){
+                let key = Keyboard.keyPressed();
+            }
+        }
+        
+        while(~salir){
+            while(key=0){
+                 let key = Keyboard.keyPressed();
+                 if(auxiliar = 1000){ do cone.moveLeft(); let auxiliar=0;}
+                let auxiliar = auxiliar + 1;
+            }
+            let key = Keyboard.keyPressed();
+            if (key = 131){do player.moveUp(); }//flecha arriba
+            if (key = 133){do player.moveDown();}//flecha abajo
+            // if (key = 132){do player.moveRight();}//flecha der
+            // if (key = 130){do player.moveLeft();}//flecha izq
+            if (key = 81){ let salir=true;} //tecla Q
+            if(auxiliar = 1000){ do cone.moveLeft(); let auxiliar=0;}
+            let auxiliar = auxiliar + 1;
+            
+            
+            while(~(key=0)){
+                 let key = Keyboard.keyPressed();
+                 if(auxiliar = 1000){ do cone.moveLeft(); let auxiliar=0;}
+                 let auxiliar = auxiliar + 1;
+            }
+        }
+        return;
+    }
+}

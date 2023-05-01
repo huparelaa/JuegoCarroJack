@@ -1,0 +1,146 @@
+class Player{//(0,0) superior izquierdo
+    field int x; //position x
+    field int y; //position y
+
+    constructor Player new(int Ax, int Ay){
+        let x = Ax;
+        let y = Ay;
+        do draw();
+        return this;
+    }
+    method void dispose(){
+        do Memory.deAlloc(this);
+        return;
+    }
+    method void draw() {
+        var int memAddress; 
+
+        let memAddress = 16384+(x+(y*32));
+        do Memory.poke(memAddress, 102);
+        do Memory.poke(memAddress +32, 102);
+        do Memory.poke(memAddress +64, 126);
+        do Memory.poke(memAddress +96, 126);
+        do Memory.poke(memAddress +128, 385);
+        do Memory.poke(memAddress +160, 385);
+        do Memory.poke(memAddress +192, -7783);
+        do Memory.poke(memAddress +224, -7783);
+        do Memory.poke(memAddress +256, 6534);
+        do Memory.poke(memAddress +288, 6534);
+        do Memory.poke(memAddress +320, -31208);
+        do Memory.poke(memAddress +352, -31208);
+        do Memory.poke(memAddress +384, 26136);
+        do Memory.poke(memAddress +416, 26136);
+        do Memory.poke(memAddress +448, -6632);
+        do Memory.poke(memAddress +480, -6632);
+        do Memory.poke(memAddress +512, 6168);
+        do Memory.poke(memAddress +544, 6168);
+        do Memory.poke(memAddress +576, -32);
+        do Memory.poke(memAddress +608, -32);
+        do Memory.poke(memAddress +640, 0);
+        do Memory.poke(memAddress +672, 0);
+        // column 1
+        do Memory.poke(memAddress +193, 7);
+        do Memory.poke(memAddress +225, 7);
+        do Memory.poke(memAddress +257, 24);
+        do Memory.poke(memAddress +289, 24);
+        do Memory.poke(memAddress +321, 97);
+        do Memory.poke(memAddress +353, 97);
+        do Memory.poke(memAddress +385, 102);
+        do Memory.poke(memAddress +417, 102);
+        do Memory.poke(memAddress +449, 97);
+        do Memory.poke(memAddress +481, 97);
+        do Memory.poke(memAddress +513, 24);
+        do Memory.poke(memAddress +545, 24);
+        do Memory.poke(memAddress +577, 127);
+        do Memory.poke(memAddress +609, 127);
+        do Memory.poke(memAddress +641, 0);
+        do Memory.poke(memAddress +673, 0);
+        // column -1
+        do Memory.poke(memAddress +127, ~32767);
+        do Memory.poke(memAddress +159, ~32767);
+        do Memory.poke(memAddress +191, ~32767);
+        do Memory.poke(memAddress +223, ~32767);
+        do Memory.poke(memAddress +255, 0);
+        do Memory.poke(memAddress +287, 0);
+        return;
+
+    }
+    method void erase() {
+        var int memAddress;
+        let memAddress = 16384 + (x + (y * 32));
+    
+        do Memory.poke(memAddress, 0);
+        do Memory.poke(memAddress +32, 0);
+        do Memory.poke(memAddress +64, 0);
+        do Memory.poke(memAddress +96, 0);
+        do Memory.poke(memAddress +128, 0);
+        do Memory.poke(memAddress +160, 0);
+        do Memory.poke(memAddress +192, 0);
+        do Memory.poke(memAddress +224, 0);
+        do Memory.poke(memAddress +256, 0);
+        do Memory.poke(memAddress +288, 0);
+        do Memory.poke(memAddress +320, 0);
+        do Memory.poke(memAddress +352, 0);
+        do Memory.poke(memAddress +384, 0);
+        do Memory.poke(memAddress +416, 0);
+        do Memory.poke(memAddress +448, 0);
+        do Memory.poke(memAddress +480, 0);
+        do Memory.poke(memAddress +512, 0);
+        do Memory.poke(memAddress +544, 0);
+        do Memory.poke(memAddress +576, 0);
+        do Memory.poke(memAddress +608, 0);
+        do Memory.poke(memAddress +640, 0);
+        do Memory.poke(memAddress +672, 0);
+        // column 1
+        do Memory.poke(memAddress +193, 0);
+        do Memory.poke(memAddress +225, 0);
+        do Memory.poke(memAddress +257, 0);
+        do Memory.poke(memAddress +289, 0);
+        do Memory.poke(memAddress +321, 0);
+        do Memory.poke(memAddress +353, 0);
+        do Memory.poke(memAddress +385, 0);
+        do Memory.poke(memAddress +417, 0);
+        do Memory.poke(memAddress +449, 0);
+        do Memory.poke(memAddress +481, 0);
+        do Memory.poke(memAddress +513, 0);
+        do Memory.poke(memAddress +545, 0);
+        do Memory.poke(memAddress +577, 0);
+        do Memory.poke(memAddress +609, 0);
+        do Memory.poke(memAddress +641, 0);
+        do Memory.poke(memAddress +673, 0);
+        // column -1
+        do Memory.poke(memAddress +127, 0);
+        do Memory.poke(memAddress +159, 0);
+        do Memory.poke(memAddress +191, 0);
+        do Memory.poke(memAddress +223, 0);
+        do Memory.poke(memAddress +255, 0);
+        do Memory.poke(memAddress +287, 0);
+        return;
+
+    }
+
+    method void moveDown() {
+        // verifica si se puede mover hacia abajo sin salir de la pantalla
+        if ((y + 5) < 256) {
+            do erase();
+            // actualiza la posición y
+            let y = y + 5;
+    
+            // dibuja el cuadrito en la nueva posición
+            do draw();
+        }
+        return;
+    }
+    
+    method void moveUp(){
+        
+        if (y>4){
+            do erase();
+            let y = y-5;
+            
+            do draw();            
+        }
+        return;
+    }
+
+}
