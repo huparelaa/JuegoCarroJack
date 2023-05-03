@@ -24,6 +24,9 @@ not
 if-goto WHILE_END1
 call Keyboard.keyPressed 0
 pop local 3
+push constant 400
+call Menu.showMenu 1
+pop temp 0
 goto WHILE_EXP1
 label WHILE_END1
 push local 3
@@ -44,10 +47,21 @@ not
 if-goto WHILE_END2
 call Keyboard.keyPressed 0
 pop local 3
+push constant 400
+call Menu.showMenu 1
+pop temp 0
 goto WHILE_EXP2
 label WHILE_END2
 goto WHILE_EXP0
 label WHILE_END0
+call Screen.clearScreen 0
+pop temp 0
+push local 0
+call Player.draw 1
+pop temp 0
+push local 1
+call Obstacle.draw 1
+pop temp 0
 label WHILE_EXP3
 push local 2
 not

@@ -7,9 +7,6 @@ pop this 0
 push argument 1
 pop this 1
 push pointer 0
-call Obstacle.draw 1
-pop temp 0
-push pointer 0
 return
 function Obstacle.dispose 0
 push argument 0
@@ -1399,7 +1396,7 @@ function Obstacle.moveLeft 0
 push argument 0
 pop pointer 0
 push this 0
-push constant 1
+push constant 0
 gt
 if-goto IF_TRUE0
 goto IF_FALSE0

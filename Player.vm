@@ -7,9 +7,6 @@ pop this 0
 push argument 1
 pop this 1
 push pointer 0
-call Player.draw 1
-pop temp 0
-push pointer 0
 return
 function Player.dispose 0
 push argument 0

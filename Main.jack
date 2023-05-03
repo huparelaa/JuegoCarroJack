@@ -15,13 +15,18 @@ class Main {
         while(showMenu){
             while(key=0){
                 let key = Keyboard.keyPressed();
+                do Menu.showMenu(400);
             }
             if(key = 32){let showMenu=false;}
+            
             while(~(key=0)){
                 let key = Keyboard.keyPressed();
+                do Menu.showMenu(400);
             }
         }
-        
+        do Screen.clearScreen();
+        do player.draw();
+        do cone.draw();
         while(~salir){
             while(key=0){
                  let key = Keyboard.keyPressed();

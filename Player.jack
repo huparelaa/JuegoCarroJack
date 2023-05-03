@@ -5,7 +5,6 @@ class Player{//(0,0) superior izquierdo
     constructor Player new(int Ax, int Ay){
         let x = Ax;
         let y = Ay;
-        do draw();
         return this;
     }
     method void dispose(){
