@@ -1,0 +1,16 @@
+class Utils{
+    function void delay(int delay){
+        var int i;
+        let i = delay;
+        while(i>0){
+            let i = i+1;
+        }
+        return;
+    }
+    function int createCarril(int seed){
+        var int carril;
+        do Random.setSeed(seed);
+        let carril = Random.randRange(2);
+        return carril;
+    }
+}

@@ -1,17 +1,24 @@
 class Main {
     function void main() {
         var Player player;
-        var Obstacle cone;
+        var Obstacle cone0;
+        var Obstacle cone1;
+        var Obstacle cone2;
+        var Obstacle cone3;
+        var Obstacle cone4;
+        var Obstacle cone5;
+        var int score; //determinamos cuantos conos habrá en la pantalla al mismo tiempo.
+        var int contadorScore;
+        var int orderCone; //Se usará para indicar el orden en que saldrán los conos.
         var boolean salir;
+        var int seed;
         var char key;
         var boolean showMenu;
         var int auxiliar;
-        let player = Player.new(2,6);
-        let cone = Obstacle.new(20, 15);
         //leer teclado
         let salir = false;
         let showMenu = true;
-        
+
         while(showMenu){
             while(key=0){
                 let key = Keyboard.keyPressed();
@@ -22,30 +29,70 @@ class Main {
             while(~(key=0)){
                 let key = Keyboard.keyPressed();
                 do Menu.showMenu(400);
+                let seed = seed + 1;
+                let cone0 =  Obstacle.new(Utils.createCarril(seed));
             }
         }
+        
+        let player = Player.new(3,104);
+        let cone1 = Obstacle.new(0);
+        let cone2 = Obstacle.new(0);
+        let cone3 = Obstacle.new(0);
+        let cone4 = Obstacle.new(0);
+        let cone5 = Obstacle.new(0);
         do Screen.clearScreen();
         do player.draw();
-        do cone.draw();
+        do cone0.draw();
+
         while(~salir){
             while(key=0){
-                 let key = Keyboard.keyPressed();
-                 if(auxiliar = 1000){ do cone.moveLeft(); let auxiliar=0;}
-                let auxiliar = auxiliar + 1;
+                let score = score+1;
+                let key = Keyboard.keyPressed();
+                if(auxiliar = 1000){
+                    do cone0.moveLeft(); 
+                    let score = score+1;
+                    if(score>100){
+                        let contadorScore = contadorScore +1;
+                        let score = 0;
+                    }
+                    do Output.moveCursor(1,7);
+                    do Output.printInt(contadorScore);
+                    let auxiliar=0;
+                }
+                 let auxiliar = auxiliar + 1;
             }
             let key = Keyboard.keyPressed();
             if (key = 131){do player.moveUp(); }//flecha arriba
             if (key = 133){do player.moveDown();}//flecha abajo
-            // if (key = 132){do player.moveRight();}//flecha der
-            // if (key = 130){do player.moveLeft();}//flecha izq
             if (key = 81){ let salir=true;} //tecla Q
-            if(auxiliar = 1000){ do cone.moveLeft(); let auxiliar=0;}
+            
+            if(auxiliar = 1000){
+                do cone0.moveLeft(); 
+                let score = score+1;
+                if(score>100){
+                    let contadorScore = contadorScore +1;
+                    let score = 0;
+                }
+                do Output.moveCursor(1,7);
+                do Output.printInt(contadorScore);
+                let auxiliar=0;
+            }
             let auxiliar = auxiliar + 1;
             
-            
             while(~(key=0)){
-                 let key = Keyboard.keyPressed();
-                 if(auxiliar = 1000){ do cone.moveLeft(); let auxiliar=0;}
+                let score = score+1;
+                let key = Keyboard.keyPressed();
+                if(auxiliar = 1000){
+                    do cone0.moveLeft(); 
+                    let score = score+1;
+                    if(score>100){
+                        let contadorScore = contadorScore +1;
+                        let score = 0;
+                    }
+                    do Output.moveCursor(1,7);
+                    do Output.printInt(contadorScore);
+                    let auxiliar=0;
+                }
                  let auxiliar = auxiliar + 1;
             }
         }

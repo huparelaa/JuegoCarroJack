@@ -1,0 +1,26 @@
+function Utils.delay 1
+push argument 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 0
+gt
+not
+if-goto WHILE_END0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Utils.createCarril 1
+push argument 0
+call Random.setSeed 1
+pop temp 0
+push constant 2
+call Random.randRange 1
+pop local 0
+push local 0
+return

@@ -1,16 +1,30 @@
 class Obstacle{
     field int x; //position x
     field int y; //position y
-
-    constructor Obstacle new(int Ax, int Ay){
-        let x = Ax;
-        let y = Ay;
+    field int carril;
+    field int stepAnimation;
+    field boolean draw;
+    constructor Obstacle new(int carrilRandom){
+        let stepAnimation=1;
+        let draw= true;
+        let carril = carrilRandom;
+        let x = 29;
+        if(carril = 0){  //
+            let y = 5;
+        }
+        if(carril=1){
+            let y = 104;
+        }
+        if(carril=2){
+            let y = 208;
+        }
         return this;
     }
     method void dispose(){
         do Memory.deAlloc(this);
         return;
     }
+    
     method void draw() {
         var int memAddress; 
         let memAddress = 16384+(x+(y*32));
@@ -127,6 +141,23 @@ class Obstacle{
         do Memory.poke(memAddress +1378, 15);
         do Memory.poke(memAddress +1410, 3);
         do Memory.poke(memAddress +1442, 3);
+        return;
+    }
+
+    method void update(int carrilRandom){
+        let stepAnimation=1;
+        let draw= true;
+        let carril = carrilRandom;
+        let x = 29;
+        if(carril = 0){  //
+            let y = 5;
+        }
+        if(carril=1){
+            let y = 104;
+        }
+        if(carril=2){
+            let y = 208;
+        }
         return;
     }
 
@@ -254,9 +285,138 @@ class Obstacle{
             let x = x-1;
             
            
-            do draw();        
+            do draw(); 
+            return;
+            
         }
-        do draw();
+        do erase();
+        return;
+        // // Animación de salida
+        // if(x < 1){
+        //     do erase();
+        //     let x = x-1;
+        //     if(draw){//draw es un booleano = true
+        //         do draws();
+        //     }
+        //     if(~(draw)){ //Si es false
+        //         do deletes();
+        //     }
+        //     if(draw){
+        //         let stepAnimation= stepAnimation+1;
+        //     }
+        //     let draw = ~(draw);
+        // }
+        
+        
+    }
+
+    
+    method void draws(){
+        if (stepAnimation = 1) {
+            do Animacion_cono.cono1(x,y);
+          }
+          if (stepAnimation = 2) {
+            do Animacion_cono.cono2(x,y);
+          }
+          if (stepAnimation = 3) {
+            do Animacion_cono.cono3(x,y);
+          }
+          if (stepAnimation = 4) {
+            do Animacion_cono.cono4(x,y);
+          }
+          if (stepAnimation = 5) {
+            do Animacion_cono.cono5(x,y);
+          }
+          if (stepAnimation = 6) {
+            do Animacion_cono.cono6(x,y);
+          }
+          if (stepAnimation = 7) {
+            do Animacion_cono.cono7(x,y);
+          }
+          if (stepAnimation = 8) {
+            do Animacion_cono.cono8(x,y);
+          }
+          if (stepAnimation = 9) {
+            do Animacion_cono.cono9(x,y);
+          }
+          if (stepAnimation = 10) {
+            do Animacion_cono.cono10(x,y);
+          }
+          if (stepAnimation = 11) {
+            do Animacion_cono.cono11(x,y);
+          }
+          if (stepAnimation = 12) {
+            do Animacion_cono.cono12(x,y);
+          }
+          if (stepAnimation = 13) {
+            do Animacion_cono.cono13(x,y);
+          }
+          if (stepAnimation = 14) {
+            do Animacion_cono.cono14(x,y);
+          }
+          if (stepAnimation = 15) {
+            do Animacion_cono.cono15(x,y);
+          }
+          if (stepAnimation = 16) {
+            do Animacion_cono.cono16(x,y);
+          }
+          if (stepAnimation = 17) {
+            do Animacion_cono.cono17(x,y);
+          }
+        return; 
+    }
+    method void deletes(){
+        if (stepAnimation = 1) {
+            do Animacion_cono.deletecono1(x, y);
+        }
+        if (stepAnimation = 2) {
+            do Animacion_cono.deletecono2(x, y);
+        }
+        if (stepAnimation = 3) {
+            do Animacion_cono.deletecono3(x, y);
+        }
+        if (stepAnimation = 4) {
+            do Animacion_cono.deletecono4(x, y);
+        }
+        if (stepAnimation = 5) {
+            do Animacion_cono.deletecono5(x, y);
+        }
+        if (stepAnimation = 6) {
+            do Animacion_cono.deletecono6(x, y);
+        }
+        if (stepAnimation = 7) {
+            do Animacion_cono.deletecono7(x, y);
+        }
+        if (stepAnimation = 8) {
+            do Animacion_cono.deletecono8(x, y);
+        }
+        if (stepAnimation = 9) {
+            do Animacion_cono.deletecono9(x, y);
+        }
+        if (stepAnimation = 10) {
+            do Animacion_cono.deletecono10(x, y);
+        }
+        if (stepAnimation = 11) {
+            do Animacion_cono.deletecono11(x, y);
+        }
+        if (stepAnimation = 12) {
+            do Animacion_cono.deletecono12(x, y);
+        }
+        if (stepAnimation = 13) {
+            do Animacion_cono.deletecono13(x, y);
+        }
+        if (stepAnimation = 14) {
+            do Animacion_cono.deletecono14(x, y);
+        }
+        if (stepAnimation = 15) {
+            do Animacion_cono.deletecono15(x, y);
+        }
+        if (stepAnimation = 16) {
+            do Animacion_cono.deletecono16(x, y);
+        }
+        if (stepAnimation = 17) {
+            do Animacion_cono.deletecono17(x, y);
+        }
         return;
     }
 }
