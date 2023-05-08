@@ -1,4 +1,4 @@
-class Obstacle{
+class Obstacle{ 
     field int x; //position x
     field int y; //position y
     field int carril;
@@ -21,12 +21,104 @@ class Obstacle{
         if(carril=2){
             let y = 208;
         }
+        // let x = 12;
+        // let y = 74;
         return this;
+    }
+    method int x() {
+        return x;
+    }
+    method int y() {
+        return y;
     }
     method void dispose(){
         do Memory.deAlloc(this);
         return;
     }
+
+    method boolean hitbox(int playerX, int playerY) {
+        var int playerXleft;
+        var int playerXright;
+        var int playerYtop;
+        var int playerYbottom;
+        let playerXleft = playerX;
+        let playerXright = playerX + 4;
+        let playerYtop = playerY;
+        let playerYbottom = playerY + 45; ////////////////////
+
+        if ( playerXleft < (x-1) ) {
+          if ((x-1) < playerXright){
+            if ( playerYtop < y ) {
+              if (y < playerYbottom){
+                do Output.moveCursor(18, 10);
+                do Output.printString("1");
+                return 2;
+              }
+            }
+            if ( playerYtop < (y+45) ) {  
+              if ((y+45) < playerYbottom){
+                do Output.moveCursor(18, 10);
+                do Output.printString("2");
+                return 2;
+              }
+            }
+          }
+        }
+
+
+        if ( playerXleft < (x+2) ) {  
+          if ((x+2) < playerXright){
+            if ( playerYtop < y ) {
+              if (y < playerYbottom){
+                do Output.moveCursor(18, 10);
+                do Output.printString("3");
+                return 2;
+              }
+            }
+            if ( playerYtop < (y+45) ) {  
+              if ((y+45) < playerYbottom){
+                do Output.moveCursor(18, 10);
+                do Output.printString("4"); 
+                return 2;
+              }
+            }
+          }
+        }
+
+        // hitbox para eje x
+        // if ( playerXleft < (x-1) ) {
+        //   if ((x-1) < playerXright){            
+        //     do Output.moveCursor(18, 10);
+        //     do Output.printString("1");
+        //     return 2;
+        //   }
+        // }
+        // if ( playerXleft < (x+2) ) {  
+        //   if ((x+2) < playerXright){
+        //     do Output.moveCursor(18, 10);
+        //     do Output.printString("2");
+        //     return 2;            
+        //   }
+        // }
+
+        // hitbox para eje y
+        // if ( playerYtop < y ) {
+        //   if (y < playerYbottom){
+        //     do Output.moveCursor(18, 10);
+        //     do Output.printString("1");
+        //     return 2;
+        //   }            
+        // }
+        // if ( playerYtop < (y+45) ) {  
+        //   if ((y+45) < playerYbottom){
+        //     do Output.moveCursor(18, 10);
+        //     do Output.printString("2");
+        //     return 2;
+        //   } 
+        // }
+
+        return 1; // el jugador no está dentro del área del obstáculo
+  }
     
     method void draw() {
         var int memAddress; 

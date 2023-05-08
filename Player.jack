@@ -1,4 +1,4 @@
-class Player{//(0,0) superior izquierdo
+class Player{//(0,0) superior izquierdo 
     field int x; //position x
     field int y; //position y
 
@@ -6,6 +6,12 @@ class Player{//(0,0) superior izquierdo
         let x = Ax;
         let y = Ay;
         return this;
+    }
+	method int x() {
+        return x;
+    }
+    method int y() {
+        return y;
     }
     method void dispose(){
         do Memory.deAlloc(this);
@@ -35,7 +41,7 @@ class Player{//(0,0) superior izquierdo
 	do Memory.poke(memAddress +512, 771);
 	do Memory.poke(memAddress +544, 771);
 	do Memory.poke(memAddress +576, 771);
-	do Memory.poke(memAddress +608, 771);
+	do Memory.poke(memAddress +608, 771); 
 	do Memory.poke(memAddress +640, -253);
 	do Memory.poke(memAddress +672, -253);
 	do Memory.poke(memAddress +704, 771);
