@@ -1,8 +1,8 @@
 class GameOver{
-    function void draw(int location) {
+    function void showGameover(int location) {
         var int memAddress; 
         let memAddress = 16384+location;
-        // column 0
+        	// column 0
         do Memory.poke(memAddress, -1);
         do Memory.poke(memAddress +32, -1);
         do Memory.poke(memAddress +64, -1);
@@ -314,6 +314,6 @@ class GameOver{
         do Memory.poke(memAddress +1734, 995);
         do Memory.poke(memAddress +1766, 995);
         do Memory.poke(memAddress +1798, 995);
-        return;
+	    return;
     }
 }

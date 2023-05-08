@@ -1,69 +1,119 @@
-function Main.main 15
+function Main.main 20
+push constant 5
+call Array.new 1
+pop local 19
+push constant 0
+push local 19
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 19
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push local 19
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 19
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 19
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label WHILE_EXP0
+push constant 0
+not
+not
+if-goto WHILE_END0
 push constant 0
 pop local 10
 push constant 0
+pop local 0
+push constant 5
+pop local 1
+call Screen.clearScreen 0
+pop temp 0
+push constant 0
+pop local 12
+push constant 0
 not
-pop local 13
-label WHILE_EXP0
-push local 13
-not
-if-goto WHILE_END0
+pop local 15
 label WHILE_EXP1
-push local 12
+push local 15
+not
+if-goto WHILE_END1
+label WHILE_EXP2
+push local 14
 push constant 0
 eq
 not
-if-goto WHILE_END1
+if-goto WHILE_END2
 call Keyboard.keyPressed 0
-pop local 12
-push constant 2000
+pop local 14
+push constant 2028
 call Menu.showMenu 1
 pop temp 0
-goto WHILE_EXP1
-label WHILE_END1
-push local 12
+goto WHILE_EXP2
+label WHILE_END2
+push local 14
 push constant 32
 eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push constant 0
-pop local 13
+pop local 15
 label IF_FALSE0
-label WHILE_EXP2
-push local 12
+label WHILE_EXP3
+push local 14
 push constant 0
 eq
 not
 not
-if-goto WHILE_END2
+if-goto WHILE_END3
 call Keyboard.keyPressed 0
-pop local 12
-push constant 2000
+pop local 14
+push constant 2028
 call Menu.showMenu 1
 pop temp 0
-push local 11
+push local 13
 push constant 1
 add
-pop local 11
-push local 11
+pop local 13
+push local 13
 call Utils.createCarril 1
 call Obstacle.new 1
-pop local 1
-goto WHILE_EXP2
-label WHILE_END2
-goto WHILE_EXP0
-label WHILE_END0
+pop local 3
+goto WHILE_EXP3
+label WHILE_END3
+goto WHILE_EXP1
+label WHILE_END1
 push constant 3
 push constant 104
 call Player.new 2
-pop local 0
-push constant 0
-call Obstacle.new 1
 pop local 2
-push constant 0
-call Obstacle.new 1
-pop local 3
 push constant 0
 call Obstacle.new 1
 pop local 4
@@ -73,315 +123,643 @@ pop local 5
 push constant 0
 call Obstacle.new 1
 pop local 6
+push constant 0
+call Obstacle.new 1
+pop local 7
+push constant 0
+call Obstacle.new 1
+pop local 8
 call Screen.clearScreen 0
 pop temp 0
-push local 0
+push local 2
 call Player.draw 1
 pop temp 0
-push local 1
+push local 3
 call Obstacle.draw 1
 pop temp 0
-label WHILE_EXP3
-push local 10
-not
-not
-if-goto WHILE_END3
 label WHILE_EXP4
 push local 12
+not
+not
+if-goto WHILE_END4
+push constant 5
+call Sys.wait 1
+pop temp 0
+label WHILE_EXP5
+push local 14
 push constant 0
 eq
 not
-if-goto WHILE_END4
-push local 7
+if-goto WHILE_END5
+push local 9
 push constant 1
 add
-pop local 7
+pop local 9
 call Keyboard.keyPressed 0
-pop local 12
-push local 14
-push constant 1000
+pop local 14
+push local 17
+push constant 50
 eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push local 8
+push local 10
 push constant 1
 gt
-push local 8
+push local 10
 and
-push constant 35
+push constant 19
 lt
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-push local 1
-push local 7
+push local 3
+push local 9
 call Obstacle.setSeed 2
 pop temp 0
-push local 1
+push local 3
 call Obstacle.moveLeft 1
 pop temp 0
 label IF_FALSE2
-push local 8
-push constant 40
+push local 10
+push constant 20
 gt
 if-goto IF_TRUE3
 goto IF_FALSE3
 label IF_TRUE3
-push local 1
-push local 7
+push local 3
+push local 9
 call Obstacle.setSeed 2
 pop temp 0
-push local 1
+push local 3
 call Obstacle.moveLeft 1
 pop temp 0
-push local 2
-push local 7
+push local 4
+push local 9
 call Obstacle.setSeed 2
 pop temp 0
-push local 2
+push local 4
 call Obstacle.moveLeft 1
 pop temp 0
 label IF_FALSE3
-push local 7
+push local 9
 push constant 1
 add
-pop local 7
-push local 7
+pop local 9
+push local 9
 push constant 100
 gt
 if-goto IF_TRUE4
 goto IF_FALSE4
 label IF_TRUE4
-push local 8
+push local 10
 push constant 1
 add
-pop local 8
+pop local 10
 push constant 0
-pop local 7
+pop local 9
 label IF_FALSE4
 push constant 0
 push constant 0
 call Output.moveCursor 2
 pop temp 0
-push local 8
+push local 10
 call Output.printInt 1
 pop temp 0
 push constant 0
-pop local 14
+pop local 17
 label IF_FALSE1
-push local 14
-push constant 1
-add
-pop local 14
-goto WHILE_EXP4
-label WHILE_END4
-call Keyboard.keyPressed 0
-pop local 12
-push local 12
-push constant 131
+push local 3
+push local 2
+call Player.x 1
+push local 2
+call Player.y 1
+call Obstacle.hitbox 3
+push constant 2
 eq
+push local 4
+push local 2
+call Player.x 1
+push local 2
+call Player.y 1
+call Obstacle.hitbox 3
+push constant 2
+eq
+or
 if-goto IF_TRUE5
 goto IF_FALSE5
 label IF_TRUE5
-push local 0
-call Player.moveUp 1
-pop temp 0
+push constant 0
+not
+pop local 12
+push constant 1
+pop local 14
 label IF_FALSE5
-push local 12
-push constant 133
+push local 17
+push constant 1
+add
+pop local 17
+push constant 5
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP5
+label WHILE_END5
+push local 3
+push local 2
+call Player.x 1
+push local 2
+call Player.y 1
+call Obstacle.hitbox 3
+push constant 2
 eq
+push local 4
+push local 2
+call Player.x 1
+push local 2
+call Player.y 1
+call Obstacle.hitbox 3
+push constant 2
+eq
+or
 if-goto IF_TRUE6
 goto IF_FALSE6
 label IF_TRUE6
-push local 0
-call Player.moveDown 1
-pop temp 0
+push constant 0
+not
+pop local 12
 label IF_FALSE6
-push local 12
-push constant 81
+call Keyboard.keyPressed 0
+pop local 14
+push local 14
+push constant 131
 eq
 if-goto IF_TRUE7
 goto IF_FALSE7
 label IF_TRUE7
-push constant 0
-not
-pop local 10
+push local 2
+call Player.moveUp 1
+pop temp 0
 label IF_FALSE7
-push local 7
-push constant 1
-add
-pop local 7
-call Keyboard.keyPressed 0
-pop local 12
 push local 14
-push constant 1000
+push constant 133
 eq
 if-goto IF_TRUE8
 goto IF_FALSE8
 label IF_TRUE8
-push local 8
-push constant 1
-gt
-push local 8
-and
-push constant 35
-lt
+push local 2
+call Player.moveDown 1
+pop temp 0
+label IF_FALSE8
+push local 14
+push constant 81
+eq
 if-goto IF_TRUE9
 goto IF_FALSE9
 label IF_TRUE9
-push local 1
-push local 7
-call Obstacle.setSeed 2
-pop temp 0
-push local 1
-call Obstacle.moveLeft 1
-pop temp 0
+push constant 0
+not
+pop local 12
 label IF_FALSE9
-push local 8
-push constant 40
-gt
+push local 9
+push constant 1
+add
+pop local 9
+call Keyboard.keyPressed 0
+pop local 14
+push local 17
+push constant 50
+eq
 if-goto IF_TRUE10
 goto IF_FALSE10
 label IF_TRUE10
-push local 1
-push local 7
-call Obstacle.setSeed 2
-pop temp 0
-push local 1
-call Obstacle.moveLeft 1
-pop temp 0
-push local 2
-push local 7
-call Obstacle.setSeed 2
-pop temp 0
-push local 2
-call Obstacle.moveLeft 1
-pop temp 0
-label IF_FALSE10
-push local 7
+push local 10
 push constant 1
-add
-pop local 7
-push local 7
-push constant 100
 gt
+push local 10
+and
+push constant 19
+lt
 if-goto IF_TRUE11
 goto IF_FALSE11
 label IF_TRUE11
-push local 8
-push constant 1
-add
-pop local 8
-push constant 0
-pop local 7
+push local 3
+push local 9
+call Obstacle.setSeed 2
+pop temp 0
+push local 3
+call Obstacle.moveLeft 1
+pop temp 0
 label IF_FALSE11
-push constant 0
-push constant 0
-call Output.moveCursor 2
-pop temp 0
-push local 8
-call Output.printInt 1
-pop temp 0
-push constant 0
-pop local 14
-label IF_FALSE8
-push local 14
-push constant 1
-add
-pop local 14
-label WHILE_EXP5
-push local 12
-push constant 0
-eq
-not
-not
-if-goto WHILE_END5
-push local 7
-push constant 1
-add
-pop local 7
-call Keyboard.keyPressed 0
-pop local 12
-push local 14
-push constant 1000
-eq
+push local 10
+push constant 20
+gt
 if-goto IF_TRUE12
 goto IF_FALSE12
 label IF_TRUE12
-push local 8
+push local 3
+push local 9
+call Obstacle.setSeed 2
+pop temp 0
+push local 3
+call Obstacle.moveLeft 1
+pop temp 0
+push local 4
+push local 9
+call Obstacle.setSeed 2
+pop temp 0
+push local 4
+call Obstacle.moveLeft 1
+pop temp 0
+label IF_FALSE12
+push local 9
 push constant 1
+add
+pop local 9
+push local 9
+push constant 100
 gt
-push local 8
-and
-push constant 35
-lt
 if-goto IF_TRUE13
 goto IF_FALSE13
 label IF_TRUE13
-push local 1
-push local 7
-call Obstacle.setSeed 2
-pop temp 0
-push local 1
-call Obstacle.moveLeft 1
-pop temp 0
-label IF_FALSE13
-push local 8
-push constant 40
-gt
-if-goto IF_TRUE14
-goto IF_FALSE14
-label IF_TRUE14
-push local 1
-push local 7
-call Obstacle.setSeed 2
-pop temp 0
-push local 1
-call Obstacle.moveLeft 1
-pop temp 0
-push local 2
-push local 7
-call Obstacle.setSeed 2
-pop temp 0
-push local 2
-call Obstacle.moveLeft 1
-pop temp 0
-label IF_FALSE14
-push local 7
+push local 10
 push constant 1
 add
-pop local 7
-push local 7
-push constant 100
-gt
-if-goto IF_TRUE15
-goto IF_FALSE15
-label IF_TRUE15
-push local 8
-push constant 1
-add
-pop local 8
+pop local 10
 push constant 0
-pop local 7
-label IF_FALSE15
+pop local 9
+label IF_FALSE13
 push constant 0
 push constant 0
 call Output.moveCursor 2
 pop temp 0
-push local 8
+push local 10
 call Output.printInt 1
 pop temp 0
 push constant 0
-pop local 14
-label IF_FALSE12
-push local 14
+pop local 17
+label IF_FALSE10
+push local 17
 push constant 1
 add
+pop local 17
+label WHILE_EXP6
+push local 14
+push constant 0
+eq
+not
+not
+if-goto WHILE_END6
+push local 9
+push constant 1
+add
+pop local 9
+call Keyboard.keyPressed 0
 pop local 14
-goto WHILE_EXP5
-label WHILE_END5
-goto WHILE_EXP3
-label WHILE_END3
+push local 17
+push constant 50
+eq
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push local 10
+push constant 1
+gt
+push local 10
+and
+push constant 19
+lt
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push local 3
+push local 9
+call Obstacle.setSeed 2
+pop temp 0
+push local 3
+call Obstacle.moveLeft 1
+pop temp 0
+label IF_FALSE15
+push local 10
+push constant 20
+gt
+if-goto IF_TRUE16
+goto IF_FALSE16
+label IF_TRUE16
+push local 3
+push local 9
+call Obstacle.setSeed 2
+pop temp 0
+push local 3
+call Obstacle.moveLeft 1
+pop temp 0
+push local 4
+push local 9
+call Obstacle.setSeed 2
+pop temp 0
+push local 4
+call Obstacle.moveLeft 1
+pop temp 0
+label IF_FALSE16
+push local 9
+push constant 1
+add
+pop local 9
+push local 9
+push constant 100
+gt
+if-goto IF_TRUE17
+goto IF_FALSE17
+label IF_TRUE17
+push local 10
+push constant 1
+add
+pop local 10
+push constant 0
+pop local 9
+label IF_FALSE17
+push constant 0
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push local 10
+call Output.printInt 1
+pop temp 0
+push constant 0
+pop local 17
+label IF_FALSE14
+push local 3
+push local 2
+call Player.x 1
+push local 2
+call Player.y 1
+call Obstacle.hitbox 3
+push constant 2
+eq
+push local 4
+push local 2
+call Player.x 1
+push local 2
+call Player.y 1
+call Obstacle.hitbox 3
+push constant 2
+eq
+or
+if-goto IF_TRUE18
+goto IF_FALSE18
+label IF_TRUE18
+push constant 0
+not
+pop local 12
+label IF_FALSE18
+push local 17
+push constant 1
+add
+pop local 17
+push constant 5
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP6
+label WHILE_END6
+goto WHILE_EXP4
+label WHILE_END4
+push constant 500
+call Sys.wait 1
+pop temp 0
+call Screen.clearScreen 0
+pop temp 0
+push constant 0
+not
+pop local 16
+push local 19
+push local 10
+call Utils.tpuntaje 2
+pop temp 0
+push constant 0
+pop local 10
+push constant 0
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 19
+call String.new 1
+push constant 80
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 106
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 1
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 0
+push local 19
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 0
+push constant 2
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 1
+push local 19
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 0
+push constant 3
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 2
+push local 19
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 0
+push constant 4
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 3
+push local 19
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 0
+push constant 5
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 4
+push local 19
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 0
+push constant 12
+push constant 15
+call Output.moveCursor 2
+pop temp 0
+push constant 36
+call String.new 1
+push constant 80
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 106
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label WHILE_EXP7
+push local 16
+not
+if-goto WHILE_END7
+label WHILE_EXP8
+push local 14
+push constant 0
+eq
+not
+if-goto WHILE_END8
+call Keyboard.keyPressed 0
+pop local 14
+push constant 2028
+call GameOver.showGameover 1
+pop temp 0
+goto WHILE_EXP8
+label WHILE_END8
+push local 14
+push constant 32
+eq
+if-goto IF_TRUE19
+goto IF_FALSE19
+label IF_TRUE19
+push constant 0
+pop local 16
+label IF_FALSE19
+label WHILE_EXP9
+push local 14
+push constant 0
+eq
+not
+not
+if-goto WHILE_END9
+call Keyboard.keyPressed 0
+pop local 14
+push constant 2028
+call GameOver.showGameover 1
+pop temp 0
+goto WHILE_EXP9
+label WHILE_END9
+goto WHILE_EXP7
+label WHILE_END7
+goto WHILE_EXP0
+label WHILE_END0
 push constant 0
 return

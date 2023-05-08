@@ -8,6 +8,16 @@ push argument 1
 pop this 1
 push pointer 0
 return
+function Player.x 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Player.y 0
+push argument 0
+pop pointer 0
+push this 1
+return
 function Player.dispose 0
 push argument 0
 pop pointer 0

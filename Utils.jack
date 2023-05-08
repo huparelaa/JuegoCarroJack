@@ -13,4 +13,47 @@ class Utils{
         let carril = Random.randRange(2);
         return carril;
     }
+     
+    function Array tpuntaje(Arrayint numeros, int nuevo) {
+        var int i;
+        var int tamaño;
+        let i = 0;
+        let tamaño = 5;
+        while(i<tamaño) {
+            if(nuevo>numeros[i]){ 
+                if(i=0){
+                    let numeros[4] = numeros[3]; 
+                    let numeros[3] = numeros[2];
+                    let numeros[2] = numeros[1];
+                    let numeros[1] = numeros[0];
+                    let numeros[0] = nuevo;
+                    let i = 5;
+                }
+                if(i=1){
+                    let numeros[4] = numeros[3];
+                    let numeros[3] = numeros[2];
+                    let numeros[2] = numeros[1];
+                    let numeros[1] = nuevo;
+                    let i = 5;
+                }
+                if(i=2){
+                    let numeros[4] = numeros[3];
+                    let numeros[3] = numeros[2];
+                    let numeros[2] = nuevo;
+                    let i = 5;
+                }
+                if(i=3){
+                    let numeros[4] = numeros[3];
+                    let numeros[3] = nuevo;
+                    let i = 5;
+                }
+                if(i=4){
+                    let numeros[4] = nuevo;
+                    let i = 5;
+                }
+            }
+            let i = i+1;
+        }
+        return numeros;
+    }
 }
