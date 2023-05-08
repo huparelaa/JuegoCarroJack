@@ -2322,7 +2322,7 @@ function Player.moveDown 0
 push argument 0
 pop pointer 0
 push this 1
-push constant 5
+push constant 45
 add
 push constant 256
 lt

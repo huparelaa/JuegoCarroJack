@@ -409,7 +409,7 @@ class Player{//(0,0) superior izquierdo
 
     method void moveDown() {
         // verifica si se puede mover hacia abajo sin salir de la pantalla
-        if ((y + 5) < 256) {
+        if ((y + 45) < 256) {
             do erase();
             // actualiza la posición y
             let y = y + 5;
