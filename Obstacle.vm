@@ -81,6 +81,12 @@ push this 0
 push constant 1
 sub
 lt
+push local 0
+push this 0
+push constant 1
+sub
+eq
+or
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
@@ -89,6 +95,12 @@ push constant 1
 sub
 push local 1
 lt
+push this 0
+push constant 1
+sub
+push local 1
+eq
+or
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
@@ -101,6 +113,10 @@ label IF_TRUE2
 push this 1
 push local 3
 lt
+push this 1
+push local 3
+eq
+or
 if-goto IF_TRUE3
 goto IF_FALSE3
 label IF_TRUE3
@@ -123,6 +139,12 @@ push this 1
 push constant 45
 add
 lt
+push local 2
+push this 1
+push constant 45
+add
+eq
+or
 if-goto IF_TRUE4
 goto IF_FALSE4
 label IF_TRUE4
@@ -131,6 +153,12 @@ push constant 45
 add
 push local 3
 lt
+push this 1
+push constant 45
+add
+push local 3
+eq
+or
 if-goto IF_TRUE5
 goto IF_FALSE5
 label IF_TRUE5
@@ -155,6 +183,12 @@ push this 0
 push constant 2
 add
 lt
+push local 0
+push this 0
+push constant 2
+add
+eq
+or
 if-goto IF_TRUE6
 goto IF_FALSE6
 label IF_TRUE6
@@ -163,18 +197,32 @@ push constant 2
 add
 push local 1
 lt
+push this 0
+push constant 2
+add
+push local 1
+eq
+or
 if-goto IF_TRUE7
 goto IF_FALSE7
 label IF_TRUE7
 push local 2
 push this 1
 lt
+push local 2
+push this 1
+eq
+or
 if-goto IF_TRUE8
 goto IF_FALSE8
 label IF_TRUE8
 push this 1
 push local 3
 lt
+push this 1
+push local 3
+eq
+or
 if-goto IF_TRUE9
 goto IF_FALSE9
 label IF_TRUE9
@@ -197,6 +245,12 @@ push this 1
 push constant 45
 add
 lt
+push local 2
+push this 1
+push constant 45
+add
+eq
+or
 if-goto IF_TRUE10
 goto IF_FALSE10
 label IF_TRUE10
@@ -205,6 +259,12 @@ push constant 45
 add
 push local 3
 lt
+push this 1
+push constant 45
+add
+push local 3
+lt
+or
 if-goto IF_TRUE11
 goto IF_FALSE11
 label IF_TRUE11

@@ -22,7 +22,7 @@ class Obstacle{
             let y = 208;
         }
         // let x = 12;
-        // let y = 74;
+        // let y = 104;
         return this;
     }
     method int x() {
@@ -46,17 +46,17 @@ class Obstacle{
         let playerYtop = playerY;
         let playerYbottom = playerY + 45; ////////////////////
 
-        if ( playerXleft < (x-1) ) {
-          if ((x-1) < playerXright){
+        if ((playerXleft < (x-1)) | (playerXleft = (x-1))) {
+          if (((x-1) < playerXright) | ((x-1) = playerXright)){
             if ( playerYtop < y ) {
-              if (y < playerYbottom){
+              if ((y < playerYbottom) | (y = playerYbottom)){
                 do Output.moveCursor(18, 10);
                 do Output.printString("1");
                 return 2;
               }
             }
-            if ( playerYtop < (y+45) ) {  
-              if ((y+45) < playerYbottom){
+            if ( (playerYtop < (y+45)) | (playerYtop = (y+45)) ) {  
+              if (((y+45) < playerYbottom) | ((y+45) = playerYbottom)){
                 do Output.moveCursor(18, 10);
                 do Output.printString("2");
                 return 2;
@@ -66,17 +66,17 @@ class Obstacle{
         }
 
 
-        if ( playerXleft < (x+2) ) {  
-          if ((x+2) < playerXright){
-            if ( playerYtop < y ) {
-              if (y < playerYbottom){
+        if ( (playerXleft < (x+2)) | (playerXleft = (x+2))) {  
+          if (((x+2) < playerXright) | ((x+2) = playerXright)){
+            if ( (playerYtop < y) | (playerYtop = y)) {
+              if ((y < playerYbottom) | (y = playerYbottom)){
                 do Output.moveCursor(18, 10);
                 do Output.printString("3");
                 return 2;
               }
             }
-            if ( playerYtop < (y+45) ) {  
-              if ((y+45) < playerYbottom){
+            if ( (playerYtop < (y+45)) | (playerYtop = (y+45)) ) {  
+              if (((y+45) < playerYbottom) | ((y+45) < playerYbottom)){
                 do Output.moveCursor(18, 10);
                 do Output.printString("4"); 
                 return 2;
