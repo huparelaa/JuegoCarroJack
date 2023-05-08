@@ -8,7 +8,7 @@ class Main {
         var Obstacle cone4;
         var Obstacle cone5;
         var int score; //determinamos cuantos conos habrá en la pantalla al mismo tiempo.
-        var int contadorScore;
+        var int contadorScore;  //
         var int orderCone; //Se usará para indicar el orden en que saldrán los conos.
         var boolean salir;
         var int seed;
@@ -22,19 +22,19 @@ class Main {
         while(showMenu){
             while(key=0){
                 let key = Keyboard.keyPressed();
-                do Menu.showMenu(400);
+                do Menu.showMenu(2000);
             }
             if(key = 32){let showMenu=false;}
             
             while(~(key=0)){
                 let key = Keyboard.keyPressed();
-                do Menu.showMenu(400);
+                do Menu.showMenu(2000);
                 let seed = seed + 1;
                 let cone0 =  Obstacle.new(Utils.createCarril(seed));
             }
         }
         
-        let player = Player.new(3,104);
+        let player = Player.new(3, 104);
         let cone1 = Obstacle.new(0);
         let cone2 = Obstacle.new(0);
         let cone3 = Obstacle.new(0);
@@ -49,13 +49,22 @@ class Main {
                 let score = score+1;
                 let key = Keyboard.keyPressed();
                 if(auxiliar = 1000){
-                    do cone0.moveLeft(); 
+                    if(contadorScore>1 & contadorScore<35){
+                        do cone0.setSeed(score);
+                        do cone0.moveLeft();
+                    }
+                    if(contadorScore>40 ){
+                        do cone0.setSeed(score);
+                        do cone0.moveLeft();
+                        do cone1.setSeed(score);
+                        do cone1.moveLeft();
+                    }
                     let score = score+1;
                     if(score>100){
                         let contadorScore = contadorScore +1;
                         let score = 0;
                     }
-                    do Output.moveCursor(1,7);
+                    do Output.moveCursor(0,0);
                     do Output.printInt(contadorScore);
                     let auxiliar=0;
                 }
@@ -66,30 +75,50 @@ class Main {
             if (key = 133){do player.moveDown();}//flecha abajo
             if (key = 81){ let salir=true;} //tecla Q
             
-            if(auxiliar = 1000){
-                do cone0.moveLeft(); 
-                let score = score+1;
-                if(score>100){
-                    let contadorScore = contadorScore +1;
-                    let score = 0;
-                }
-                do Output.moveCursor(1,7);
-                do Output.printInt(contadorScore);
-                let auxiliar=0;
-            }
-            let auxiliar = auxiliar + 1;
-            
-            while(~(key=0)){
-                let score = score+1;
-                let key = Keyboard.keyPressed();
+             let score = score+1;
+            let key = Keyboard.keyPressed();
                 if(auxiliar = 1000){
-                    do cone0.moveLeft(); 
+                    if(contadorScore>1 & contadorScore<35){
+                        do cone0.setSeed(score);
+                        do cone0.moveLeft();
+                    }
+                    if(contadorScore>40){
+                        do cone0.setSeed(score);
+                        do cone0.moveLeft();
+                        do cone1.setSeed(score);
+                        do cone1.moveLeft();
+                    }
                     let score = score+1;
                     if(score>100){
                         let contadorScore = contadorScore +1;
                         let score = 0;
                     }
-                    do Output.moveCursor(1,7);
+                    do Output.moveCursor(0,0);
+                    do Output.printInt(contadorScore);
+                    let auxiliar=0;
+                }
+                 let auxiliar = auxiliar + 1;
+            
+            while(~(key=0)){
+                let score = score+1;
+                let key = Keyboard.keyPressed();
+                if(auxiliar = 1000){
+                    if(contadorScore>1 & contadorScore<35){
+                        do cone0.setSeed(score);
+                        do cone0.moveLeft();
+                    }
+                    if(contadorScore>40 ){
+                        do cone0.setSeed(score);
+                        do cone0.moveLeft();
+                        do cone1.setSeed(score);
+                        do cone1.moveLeft();
+                    }
+                    let score = score+1;
+                    if(score>100){
+                        let contadorScore = contadorScore +1;
+                        let score = 0;
+                    }
+                    do Output.moveCursor(0,0);
                     do Output.printInt(contadorScore);
                     let auxiliar=0;
                 }

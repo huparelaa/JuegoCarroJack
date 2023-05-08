@@ -1,5 +1,5 @@
 function Obstacle.new 0
-push constant 5
+push constant 7
 call Memory.alloc 1
 pop pointer 0
 push constant 1
@@ -7,6 +7,9 @@ pop this 3
 push constant 0
 not
 pop this 4
+push constant 0
+not
+pop this 6
 push argument 0
 pop this 2
 push constant 29
@@ -751,6 +754,13 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
+function Obstacle.setSeed 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 5
+push constant 0
+return
 function Obstacle.update 0
 push argument 0
 pop pointer 0
@@ -759,6 +769,9 @@ pop this 3
 push constant 0
 not
 pop this 4
+push constant 0
+not
+pop this 6
 push argument 1
 pop this 2
 push constant 29
@@ -1489,6 +1502,11 @@ return
 label IF_FALSE0
 push pointer 0
 call Obstacle.erase 1
+pop temp 0
+push pointer 0
+push this 5
+call Utils.createCarril 1
+call Obstacle.update 2
 pop temp 0
 push constant 0
 return
