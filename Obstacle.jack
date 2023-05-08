@@ -244,6 +244,10 @@ class Obstacle{
       return;
     }
 
+    method int getSeed(){
+      return seed;
+    }
+
     method void update(int carrilRandom){
         let stepAnimation=1;
         let draw= true;
@@ -380,7 +384,7 @@ class Obstacle{
         return;
     }
 
-    method void moveLeft(){
+    method void moveLeft(int carril){
         if(x > 0){
             do erase();
             let x = x-1;
@@ -390,7 +394,7 @@ class Obstacle{
             
         }
         do erase();
-        do update(Utils.createCarril(seed));
+        do update(carril);
         return;
         // // Animación de salida
         // if(x < 1){

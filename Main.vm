@@ -1,4 +1,4 @@
-function Main.main 20
+function Main.main 23
 push constant 5
 call Array.new 1
 pop local 19
@@ -104,8 +104,12 @@ add
 pop local 13
 push local 13
 call Utils.createCarril 1
+pop local 21
+push local 21
 call Obstacle.new 1
 pop local 3
+push local 21
+pop local 22
 goto WHILE_EXP3
 label WHILE_END3
 goto WHILE_EXP1
@@ -114,7 +118,19 @@ push constant 3
 push constant 104
 call Player.new 2
 pop local 2
-push constant 0
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+call Obstacle.new 1
+pop local 3
+push local 21
+pop local 22
+push local 21
 call Obstacle.new 1
 pop local 4
 push constant 0
@@ -142,15 +158,16 @@ push local 12
 not
 not
 if-goto WHILE_END4
-push constant 5
-call Sys.wait 1
-pop temp 0
 label WHILE_EXP5
 push local 14
 push constant 0
 eq
 not
 if-goto WHILE_END5
+push local 13
+push constant 1
+add
+pop local 13
 push local 9
 push constant 1
 add
@@ -177,31 +194,91 @@ push local 3
 push local 9
 call Obstacle.setSeed 2
 pop temp 0
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+push local 22
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+label IF_FALSE3
+push local 21
+pop local 22
 push local 3
-call Obstacle.moveLeft 1
+push local 21
+call Obstacle.moveLeft 2
 pop temp 0
 label IF_FALSE2
 push local 10
 push constant 20
 gt
-if-goto IF_TRUE3
-goto IF_FALSE3
-label IF_TRUE3
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
 push local 3
 push local 9
 call Obstacle.setSeed 2
 pop temp 0
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+push local 22
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+label IF_FALSE5
+push local 21
+pop local 22
 push local 3
-call Obstacle.moveLeft 1
+push local 21
+call Obstacle.moveLeft 2
 pop temp 0
 push local 4
 push local 9
 call Obstacle.setSeed 2
 pop temp 0
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+push local 22
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+label IF_FALSE6
+push local 21
+pop local 22
 push local 4
-call Obstacle.moveLeft 1
+push local 21
+call Obstacle.moveLeft 2
 pop temp 0
-label IF_FALSE3
+label IF_FALSE4
 push local 9
 push constant 1
 add
@@ -209,16 +286,16 @@ pop local 9
 push local 9
 push constant 100
 gt
-if-goto IF_TRUE4
-goto IF_FALSE4
-label IF_TRUE4
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
 push local 10
 push constant 1
 add
 pop local 10
 push constant 0
 pop local 9
-label IF_FALSE4
+label IF_FALSE7
 push constant 0
 push constant 0
 call Output.moveCursor 2
@@ -246,22 +323,23 @@ call Obstacle.hitbox 3
 push constant 2
 eq
 or
-if-goto IF_TRUE5
-goto IF_FALSE5
-label IF_TRUE5
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
 push constant 0
 not
 pop local 12
 push constant 1
 pop local 14
-label IF_FALSE5
+label IF_FALSE8
 push local 17
 push constant 1
 add
 pop local 17
-push constant 5
-call Sys.wait 1
-pop temp 0
+push local 13
+push constant 1
+add
+pop local 13
 goto WHILE_EXP5
 label WHILE_END5
 push local 3
@@ -281,38 +359,6 @@ call Obstacle.hitbox 3
 push constant 2
 eq
 or
-if-goto IF_TRUE6
-goto IF_FALSE6
-label IF_TRUE6
-push constant 0
-not
-pop local 12
-label IF_FALSE6
-call Keyboard.keyPressed 0
-pop local 14
-push local 14
-push constant 131
-eq
-if-goto IF_TRUE7
-goto IF_FALSE7
-label IF_TRUE7
-push local 2
-call Player.moveUp 1
-pop temp 0
-label IF_FALSE7
-push local 14
-push constant 133
-eq
-if-goto IF_TRUE8
-goto IF_FALSE8
-label IF_TRUE8
-push local 2
-call Player.moveDown 1
-pop temp 0
-label IF_FALSE8
-push local 14
-push constant 81
-eq
 if-goto IF_TRUE9
 goto IF_FALSE9
 label IF_TRUE9
@@ -320,6 +366,38 @@ push constant 0
 not
 pop local 12
 label IF_FALSE9
+call Keyboard.keyPressed 0
+pop local 14
+push local 14
+push constant 131
+eq
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push local 2
+call Player.moveUp 1
+pop temp 0
+label IF_FALSE10
+push local 14
+push constant 133
+eq
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push local 2
+call Player.moveDown 1
+pop temp 0
+label IF_FALSE11
+push local 14
+push constant 81
+eq
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push constant 0
+not
+pop local 12
+label IF_FALSE12
 push local 9
 push constant 1
 add
@@ -329,9 +407,9 @@ pop local 14
 push local 17
 push constant 50
 eq
-if-goto IF_TRUE10
-goto IF_FALSE10
-label IF_TRUE10
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
 push local 10
 push constant 1
 gt
@@ -339,38 +417,98 @@ push local 10
 and
 push constant 19
 lt
-if-goto IF_TRUE11
-goto IF_FALSE11
-label IF_TRUE11
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
 push local 3
 push local 9
 call Obstacle.setSeed 2
 pop temp 0
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+push local 22
+eq
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+label IF_FALSE15
+push local 21
+pop local 22
 push local 3
-call Obstacle.moveLeft 1
+push local 21
+call Obstacle.moveLeft 2
 pop temp 0
-label IF_FALSE11
+label IF_FALSE14
 push local 10
 push constant 20
 gt
-if-goto IF_TRUE12
-goto IF_FALSE12
-label IF_TRUE12
+if-goto IF_TRUE16
+goto IF_FALSE16
+label IF_TRUE16
 push local 3
 push local 9
 call Obstacle.setSeed 2
 pop temp 0
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+push local 22
+eq
+if-goto IF_TRUE17
+goto IF_FALSE17
+label IF_TRUE17
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+label IF_FALSE17
+push local 21
+pop local 22
 push local 3
-call Obstacle.moveLeft 1
+push local 21
+call Obstacle.moveLeft 2
 pop temp 0
 push local 4
 push local 9
 call Obstacle.setSeed 2
 pop temp 0
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+push local 22
+eq
+if-goto IF_TRUE18
+goto IF_FALSE18
+label IF_TRUE18
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+label IF_FALSE18
+push local 21
+pop local 22
 push local 4
-call Obstacle.moveLeft 1
+push local 21
+call Obstacle.moveLeft 2
 pop temp 0
-label IF_FALSE12
+label IF_FALSE16
 push local 9
 push constant 1
 add
@@ -378,16 +516,16 @@ pop local 9
 push local 9
 push constant 100
 gt
-if-goto IF_TRUE13
-goto IF_FALSE13
-label IF_TRUE13
+if-goto IF_TRUE19
+goto IF_FALSE19
+label IF_TRUE19
 push local 10
 push constant 1
 add
 pop local 10
 push constant 0
 pop local 9
-label IF_FALSE13
+label IF_FALSE19
 push constant 0
 push constant 0
 call Output.moveCursor 2
@@ -397,7 +535,7 @@ call Output.printInt 1
 pop temp 0
 push constant 0
 pop local 17
-label IF_FALSE10
+label IF_FALSE13
 push local 17
 push constant 1
 add
@@ -409,6 +547,10 @@ eq
 not
 not
 if-goto WHILE_END6
+push local 13
+push constant 1
+add
+pop local 13
 push local 9
 push constant 1
 add
@@ -418,9 +560,9 @@ pop local 14
 push local 17
 push constant 50
 eq
-if-goto IF_TRUE14
-goto IF_FALSE14
-label IF_TRUE14
+if-goto IF_TRUE20
+goto IF_FALSE20
+label IF_TRUE20
 push local 10
 push constant 1
 gt
@@ -428,38 +570,98 @@ push local 10
 and
 push constant 19
 lt
-if-goto IF_TRUE15
-goto IF_FALSE15
-label IF_TRUE15
+if-goto IF_TRUE21
+goto IF_FALSE21
+label IF_TRUE21
 push local 3
 push local 9
 call Obstacle.setSeed 2
 pop temp 0
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+push local 22
+eq
+if-goto IF_TRUE22
+goto IF_FALSE22
+label IF_TRUE22
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+label IF_FALSE22
+push local 21
+pop local 22
 push local 3
-call Obstacle.moveLeft 1
+push local 21
+call Obstacle.moveLeft 2
 pop temp 0
-label IF_FALSE15
+label IF_FALSE21
 push local 10
 push constant 20
 gt
-if-goto IF_TRUE16
-goto IF_FALSE16
-label IF_TRUE16
+if-goto IF_TRUE23
+goto IF_FALSE23
+label IF_TRUE23
 push local 3
 push local 9
 call Obstacle.setSeed 2
 pop temp 0
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+push local 22
+eq
+if-goto IF_TRUE24
+goto IF_FALSE24
+label IF_TRUE24
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+label IF_FALSE24
+push local 21
+pop local 22
 push local 3
-call Obstacle.moveLeft 1
+push local 21
+call Obstacle.moveLeft 2
 pop temp 0
 push local 4
 push local 9
 call Obstacle.setSeed 2
 pop temp 0
+push local 13
+call Utils.createCarril 1
+pop local 21
+push local 21
+push local 22
+eq
+if-goto IF_TRUE25
+goto IF_FALSE25
+label IF_TRUE25
+push local 13
+push constant 1
+add
+pop local 13
+push local 13
+call Utils.createCarril 1
+pop local 21
+label IF_FALSE25
+push local 21
+pop local 22
 push local 4
-call Obstacle.moveLeft 1
+push local 21
+call Obstacle.moveLeft 2
 pop temp 0
-label IF_FALSE16
+label IF_FALSE23
 push local 9
 push constant 1
 add
@@ -467,16 +669,16 @@ pop local 9
 push local 9
 push constant 100
 gt
-if-goto IF_TRUE17
-goto IF_FALSE17
-label IF_TRUE17
+if-goto IF_TRUE26
+goto IF_FALSE26
+label IF_TRUE26
 push local 10
 push constant 1
 add
 pop local 10
 push constant 0
 pop local 9
-label IF_FALSE17
+label IF_FALSE26
 push constant 0
 push constant 0
 call Output.moveCursor 2
@@ -486,7 +688,7 @@ call Output.printInt 1
 pop temp 0
 push constant 0
 pop local 17
-label IF_FALSE14
+label IF_FALSE20
 push local 3
 push local 2
 call Player.x 1
@@ -504,20 +706,21 @@ call Obstacle.hitbox 3
 push constant 2
 eq
 or
-if-goto IF_TRUE18
-goto IF_FALSE18
-label IF_TRUE18
+if-goto IF_TRUE27
+goto IF_FALSE27
+label IF_TRUE27
 push constant 0
 not
 pop local 12
-label IF_FALSE18
+label IF_FALSE27
 push local 17
 push constant 1
 add
 pop local 17
-push constant 5
-call Sys.wait 1
-pop temp 0
+push local 13
+push constant 1
+add
+pop local 13
 goto WHILE_EXP6
 label WHILE_END6
 goto WHILE_EXP4
@@ -737,12 +940,12 @@ label WHILE_END8
 push local 14
 push constant 32
 eq
-if-goto IF_TRUE19
-goto IF_FALSE19
-label IF_TRUE19
+if-goto IF_TRUE28
+goto IF_FALSE28
+label IF_TRUE28
 push constant 0
 pop local 16
-label IF_FALSE19
+label IF_FALSE28
 label WHILE_EXP9
 push local 14
 push constant 0
