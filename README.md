@@ -12,7 +12,7 @@ A través de Nand2Tetris se ha creado un juego de un carrito que consiste en esq
 ## Instalación y ejecución del programa
 
 ### Descargar todos los archivos 
-![image](https://github.com/dgonzalezt2/JuegoCarroJack/assets/81880494/2369095c-09ff-4ce0-acf7-d61ad231f3dd)
+![image](https://github.com/huparelaa/JuegoCarroJack/assets/81880494/d8fe2199-40c3-4500-9041-aa91b416a208)
 
 
 ### Simulador:
@@ -33,7 +33,7 @@ Te saldra esta interfaz de Virtual Machine Emulator.
 
 ![image](https://github.com/dgonzalezt2/JuegoCarroJack/assets/81880494/a285e66c-dbda-4145-a33d-44eecf87ac63)
 
-Selecciona la carpeta y busca el programa donde se encuentra el archivo `Elementos`.
+Selecciona la carpeta y busca el programa donde se encuentra el archivo `Elementos` o en este caso seria `JuegoCarroJack-main`.
 
 ![image](https://github.com/dgonzalezt2/JuegoCarroJack/assets/81880494/4e3ca241-ea67-4939-8cab-3ade04dc8ecf)
 
